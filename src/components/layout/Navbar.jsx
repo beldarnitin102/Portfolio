@@ -114,7 +114,7 @@ export default function Navbar() {
             className="fixed inset-0 z-40 bg-[#09090B]/95 backdrop-blur-2xl lg:hidden"
           >
             <div className="w-full max-w-[1360px] mx-auto pt-28 px-6 sm:px-8">
-              <nav className="flex flex-col gap-8">
+              <nav className="flex flex-col gap-12">
                 {navigation.map((item) => (
                   <a
                     key={item.id}
