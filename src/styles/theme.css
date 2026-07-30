@@ -1,0 +1,72 @@
+@theme {
+
+  /* ===========================
+     COLORS
+  =========================== */
+
+  --color-background: #09090B;
+  --color-surface: #18181B;
+  --color-card: #202024;
+  --color-border: #2A2A2E;
+
+  --color-primary: #FAFAFA;
+  --color-secondary: #A1A1AA;
+
+  --color-accent: #D4AF37;
+  --color-accent-light: #E6C15A;
+  --color-accent-dark: #B89328;
+
+  --color-olive: #708A58;
+
+
+  /* ===========================
+     RADIUS
+  =========================== */
+
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-xl: 40px;
+
+
+  /* ===========================
+     SPACING
+  =========================== */
+
+  --section-y: 8rem;
+  --container: 80rem;
+
+
+  /* ===========================
+     BLUR
+  =========================== */
+
+  --blur-sm: 12px;
+  --blur-md: 24px;
+  --blur-lg: 80px;
+
+
+  /* ===========================
+     SHADOWS
+  =========================== */
+
+  --shadow-soft:
+      0 10px 40px rgba(0,0,0,.28);
+
+  --shadow-card:
+      0 15px 60px rgba(0,0,0,.35);
+
+  --shadow-glow:
+      0 0 120px rgba(212,175,55,.12);
+
+
+  /* ===========================
+     TIMINGS
+  =========================== */
+
+  --duration-fast: .25s;
+  --duration-normal: .45s;
+  --duration-slow: .8s;
+
+}
