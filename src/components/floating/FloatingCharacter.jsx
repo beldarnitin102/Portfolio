@@ -6,67 +6,35 @@ import { useState } from "react";
 
 export default function FloatingCharacter() {
   const { scrollYProgress } = useScroll();
-  
-  // Track three distinct active view string states: "hero" | "about" | "education"
-  const [activeSection, setActiveSection] = useState("hero");
+  const [isAboutSection, setIsAboutSection] = useState(false);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    if (latest < 0.15) {
-      setActiveSection("hero");
-    } else if (latest >= 0.15 && latest < 0.40) {
-      setActiveSection("about");
+    if (latest >= 0.12) {
+      setIsAboutSection(true);
     } else {
-      setActiveSection("education");
+      setIsAboutSection(false);
     }
   });
 
   /* =========================================================
      1. SEAMLESS CONTAINER DIMENSION & POSITION TIMELINES
      ========================================================= */
-  
-  // Controls structural width adjustments dynamically through all three zones
-  const cardWidth = useTransform(
-    scrollYProgress,
-    [0, 0.12, 0.18, 0.38, 0.44],
-    ["500px", "420px", "460px", "420px", "520px"] // Custom size for education panel
-  );
+  const cardWidth = useTransform(scrollYProgress, [0, 0.14, 0.18], ["500px", "420px", "460px"]);
+  const cardHeight = useTransform(scrollYProgress, [0, 0.14, 0.18], ["650px", "420px", "540px"]);
 
-  // Controls structural height adjustments dynamically through all three zones
-  const cardHeight = useTransform(
-    scrollYProgress,
-    [0, 0.12, 0.18, 0.38, 0.44],
-    ["650px", "420px", "540px", "420px", "400px"] // Wider banner-style aspect ratio for college
-  );
-
-  // Smoothly drives the vertical movement down past your sections
-  const cardMoveY = useTransform(
-    scrollYProgress,
-    [0, 0.18, 0.38, 0.45],
-    ["-24px", "80px", "80px", "680px"] // Pushes the card down into the Education grid
-  );
-
-  // Handles horizontal travel across your layout grid columns
-  const cardMoveX = useTransform(
-    scrollYProgress,
-    [0, 0.18, 0.38, 0.45],
-    ["172px", "-630px", "-630px", "0px"] // Centers over the right side space of the Education container
-  );
-
-  /* 
-    MULTI-STAGE RADIUS MORPH:
-    - Moves out of Hero: Squeezes down into a circle at 0.12
-    - Enters About: Flattens out to a 24px rounded rectangle at 0.18
-    - Moves out of About: Squeezes back into a circle at 0.40
-    - Enters Education: Forms a clean 16px corner bounding edge layout box at 0.45
+  /*
+    FIXED VERTICAL CANSED SPACE (y):
+    Changed the destination coordinate parameter from 1160px down to 830px.
+    This safely locks the card beside your About biography and completely 
+    stops it from drifting down into your Education cards!
   */
-  const cardRadiusChange = useTransform(
-    scrollYProgress,
-    [0, 0.12, 0.18, 0.40, 0.45],
-    ["36px", "999px", "24px", "999px", "16px"]
-  );
+  const cardMoveY = useTransform(scrollYProgress, [0, 0.18], ["0px", "760px"]); 
+  
+  const cardMoveX = useTransform(scrollYProgress, [0, 0.18], ["172px", "-630px"]);
+  const cardRadiusChange = useTransform(scrollYProgress, [0, 0.08, 0.18], ["32px", "999px", "24px"]);
 
   return (
-    <div className="fixed inset-x-0 top-32 w-full max-w-[1360px] mx-auto pointer-events-none z-30 px-6 sm:px-8 lg:px-16 xl:px-20">
+    <div className="absolute inset-x-0 top-32 w-full max-w-[1360px] mx-auto pointer-events-none z-30 px-6 sm:px-8 lg:px-16 xl:px-20">
       <motion.div
         style={{
           width: cardWidth,
@@ -93,11 +61,11 @@ export default function FloatingCharacter() {
           will-change-transform
         "
       >
-        {/* IMAGE LAYER 1: HERO PORTRAIT (Your Face) */}
+        {/* IMAGE LAYER 1: HERO PORTRAIT */}
         <motion.div 
           className="absolute inset-0 w-full h-full pointer-events-none" 
-          animate={{ opacity: activeSection === "hero" ? 1 : 0 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
+          animate={{ opacity: isAboutSection ? 0 : 1 }}
+          transition={{ duration: 0.35, ease: "easeInOut" }}
         >
           <Image
             src="/images/nitin.png"
@@ -109,32 +77,17 @@ export default function FloatingCharacter() {
           />
         </motion.div>
 
-        {/* IMAGE LAYER 2: ABOUT ILLUSTRATION (Ash & Pikachu) */}
+        {/* IMAGE LAYER 2: ABOUT ILLUSTRATION */}
         <motion.div 
           className="absolute inset-0 w-full h-full pointer-events-none" 
-          animate={{ opacity: activeSection === "about" ? 1 : 0 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
+          animate={{ opacity: isAboutSection ? 1 : 0 }}
+          transition={{ duration: 0.35, ease: "easeInOut" }}
         >
           <Image
             src="/images/about.png"
             alt="Ash and Pikachu Illustration"
             width={500}
             height={650}
-            className="w-full h-full object-cover"
-          />
-        </motion.div>
-
-        {/* IMAGE LAYER 3: EDUCATION VIEW (College Canvas Scene) */}
-        <motion.div 
-          className="absolute inset-0 w-full h-full pointer-events-none" 
-          animate={{ opacity: activeSection === "education" ? 1 : 0 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-        >
-          <Image
-            src="/images/college.png"
-            alt="College Campus Location View"
-            width={520}
-            height={400}
             className="w-full h-full object-cover"
           />
         </motion.div>

@@ -25,20 +25,14 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* RIGHT SIDE PLACEHOLDER BOX */}
+            {/* RIGHT SIDE PLACEHOLDER */}
             <div className="order-1 lg:order-2 flex justify-center lg:justify-end w-full">
-              {/* 
-                UPDATED LINE BELOW:
-                Added "xl:-translate-y-6" along with your horizontal offset 
-                to shift the initial position slightly upward and to the right!
-              */}
               <div className="w-[500px] h-[650px] hidden lg:block xl:translate-x-8 xl:-translate-y-6" />
             </div>
 
           </div>
         </div>
       </Container>
-
       <HeroScroll />
     </section>
   );
