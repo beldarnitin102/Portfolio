@@ -12,7 +12,7 @@ const defaultSocials = [
         <path d="M9 18c-4.51 2-5-2-7-2" />
       </svg>
     ),
-    href: "https://github.com",
+    href: "https://github.com/beldarnitin102",
   },
   {
     icon: (props) => (
@@ -22,11 +22,11 @@ const defaultSocials = [
         <circle cx="4" cy="4" r="2" />
       </svg>
     ),
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/in/nitin-beldar-022240333?utm_source=share_via&utm_content=profile&utm_medium=member_android",
   },
   {
     icon: Mail,
-    href: "mailto:YOUR_EMAIL",
+    href: "mailto:beldarnitin940@gmail.com",
   },
 ];
 

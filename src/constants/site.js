@@ -10,17 +10,17 @@ const siteConfig = {
   description:
     "Building scalable web applications and AI-powered software with modern technologies.",
 
-  email: "your-email@gmail.com",
+  email: "beldarnitin940@gmail.com",
 
-  phone: "+91 XXXXX XXXXX",
+  phone: "+91 9579737086",
 
   location: "Maharashtra, India",
 
-  resume: "/resume.pdf",
+  resume: "https://drive.google.com/file/d/1Uk9SN9HYCu7CF1qL0Qh9W9hprKRX50Fa/view?usp=sharing",
 
   github: "https://github.com/YOUR_USERNAME",
 
-  linkedin: "https://linkedin.com/in/YOUR_USERNAME",
+  linkedin: "https://www.linkedin.com/in/nitin-beldar-022240333?utm_source=share_via&utm_content=profile&utm_medium=member_android",
 
   portfolio: "https://nitin.dev",
 
@@ -40,10 +40,6 @@ const siteConfig = {
     {
       id: "projects",
       label: "Projects",
-    },
-    {
-      id: "experience",
-      label: "Experience",
     },
     {
       id: "contact",

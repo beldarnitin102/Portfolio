@@ -57,7 +57,7 @@ export default function Navbar() {
           </div>
 
           {/* Navigation Items (Perfect visual center alignment) */}
-          <nav className="hidden lg:flex items-center gap-10">
+          <nav className="hidden lg:flex items-center gap-15">
             {navigation.map((item) => (
               <a
                 key={item.id}
@@ -88,10 +88,6 @@ export default function Navbar() {
 
           {/* Action Button Group */}
           <div className="flex-1 flex items-center justify-end gap-4">
-            <div className="hidden lg:block">
-              <Button variant="secondary">Resume</Button>
-            </div>
-
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="lg:hidden text-white"
@@ -126,9 +122,6 @@ export default function Navbar() {
                   </a>
                 ))}
               </nav>
-              <Button variant="primary" className="mt-12 w-full">
-                Download Resume
-              </Button>
             </div>
           </motion.div>
         )}

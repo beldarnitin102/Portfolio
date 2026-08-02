@@ -20,39 +20,48 @@ export default function HeroButtons() {
         gap-4
       "
     >
-      <Button
-        variant="primary"
-        size="lg"
-        className="group min-w-[220px]"
+      <a href="#projects" className="w-full sm:w-auto">
+        <Button
+          variant="primary"
+          size="lg"
+          className="group min-w-[220px] w-full"
+        >
+          <span>Explore My Work</span>
+
+          <ArrowRight
+            size={18}
+            className="
+              transition-transform
+              duration-300
+              group-hover:translate-x-1
+            "
+          />
+        </Button>
+      </a>
+
+      <a
+        href="https://drive.google.com/file/d/1Uk9SN9HYCu7CF1qL0Qh9W9hprKRX50Fa/view?usp=sharing"
+        target="_blank"
+        rel="noreferrer noopener"
+        className="w-full sm:w-auto"
       >
-        <span>Explore My Work</span>
+        <Button
+          variant="secondary"
+          size="lg"
+          className="group min-w-[220px] w-full"
+        >
+          <span>Download Resume</span>
 
-        <ArrowRight
-          size={18}
-          className="
-            transition-transform
-            duration-300
-            group-hover:translate-x-1
-          "
-        />
-      </Button>
-
-      <Button
-        variant="secondary"
-        size="lg"
-        className="group min-w-[220px]"
-      >
-        <span>Download Resume</span>
-
-        <Download
-          size={18}
-          className="
-            transition-transform
-            duration-300
-            group-hover:-translate-y-1
-          "
-        />
-      </Button>
+          <Download
+            size={18}
+            className="
+              transition-transform
+              duration-300
+              group-hover:-translate-y-1
+            "
+          />
+        </Button>
+      </a>
     </div>
   );
 }

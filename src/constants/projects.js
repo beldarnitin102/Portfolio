@@ -4,20 +4,20 @@ const projects = [
     number: "01",
     title: "District Grievance Portal",
     description:
-      "AI powered grievance management platform with smart routing, duplicate detection and multilingual complaint assistance.",
+      "AI powered grievance management platform with smart routing, duplicate detection and multilingual complaint assistance. working on it some part remain ",
 
     image: "/projects/grievance.png",
 
     tech: [
-      "Next.js",
+      "React.js",
       "Node.js",
       "MongoDB",
       "Express",
       "Gemini AI",
     ],
 
-    live: "#",
-    github: "#",
+    live: "https://github.com/beldarnitin102/CitizenDesk",
+    github: "https://github.com/beldarnitin102/CitizenDesk",
 
     featured: true,
   },
@@ -25,10 +25,10 @@ const projects = [
   {
     id: 2,
     number: "02",
-    title: "SkillBridge",
+    title: "CurseHub",
 
     description:
-      "Transform YouTube playlists into complete structured courses using AI generated quizzes, notes and certificates.",
+      "Transform YouTube playlists into complete structured courses using AI generated quizzes, notes and certificates. and also uses as dual platform for learning and teaching.",
 
     image: "/projects/skillbridge.png",
 
@@ -36,11 +36,11 @@ const projects = [
       "React",
       "Node",
       "MongoDB",
-      "Gemini",
+      "Cohere And Grok API",
     ],
 
-    live: "#",
-    github: "#",
+    live: "https://course-hub-eight-lemon.vercel.app/",
+    github: "https://github.com/beldarnitin102/CourseHub",
   },
 
   {
@@ -51,18 +51,19 @@ const projects = [
     title: "ThreatLens",
 
     description:
-      "Malware detection dashboard using Machine Learning for executable classification and analytics.",
+      "Malware detection dashboard using Machine Learning for executable classification and analytics.and understand on the what parameters of the file is malicious or not",
 
     image: "/projects/threatlens.png",
 
     tech: [
       "Python",
       "FastAPI",
-      "TensorFlow",
+      "React",
+      "ML"
     ],
 
-    live: "#",
-    github: "#",
+    live: "https://malware-detection-system-using.onrender.com",
+    github: "https://github.com/beldarnitin102/Malware-Detection-System-Using-Behavioral-Analysis-and-Machine-Learning",
   },
 
   {
@@ -73,7 +74,7 @@ const projects = [
     title: "SkillScope",
 
     description:
-      "ATS Resume Analyzer providing AI feedback, resume scoring and interview preparation.",
+      "ATS Resume Analyzer providing AI feedback, resume scoring and interview preparation. and also provide the feedback on the resume and also provide the interview questions based on the resume",
 
     image: "/projects/skillscope.png",
 
@@ -81,10 +82,11 @@ const projects = [
       "React",
       "Express",
       "Gemini",
+      "MongoDB",
     ],
 
-    live: "#",
-    github: "#",
+    live: "https://github.com/beldarnitin102/SkillScope",
+    github: "https://github.com/beldarnitin102/SkillScope",
   },
 ];
 

@@ -10,6 +10,8 @@ import About from "@/components/about/About";
 import FloatingCharacter from "@/components/floating/FloatingCharacter";
 import Education from "@/components/education/Education";
 import Projects from "@/components/projects/Projects";
+import Skills from "@/components/skills/Skills";
+import Contact from "@/components/contact/Contact";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -46,6 +48,9 @@ export default function Home() {
           {/* Education safely renders outside the tracking zone bounds */}
           <Education />
           <Projects />
+          <br/>
+          <Skills />
+          <Contact/>
         </main>
       )}
     </>
