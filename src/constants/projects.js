@@ -1,69 +1,91 @@
-export const featuredProject = {
-  title: "District Grievance Portal",
-
-  description:
-    "AI-powered grievance management platform for district administration with intelligent complaint classification, duplicate detection, multilingual support and department routing.",
-
-  image: "/projects/grievance.png",
-
-  technologies: [
-    "Next.js",
-    "React",
-    "Node.js",
-    "Express",
-    "MongoDB",
-    "Gemini AI",
-  ],
-
-  live: "#",
-
-  github: "#",
-};
-
-export const projects = [
+const projects = [
   {
+    id: 1,
+    number: "01",
+    title: "District Grievance Portal",
+    description:
+      "AI powered grievance management platform with smart routing, duplicate detection and multilingual complaint assistance.",
+
+    image: "/projects/grievance.png",
+
+    tech: [
+      "Next.js",
+      "Node.js",
+      "MongoDB",
+      "Express",
+      "Gemini AI",
+    ],
+
+    live: "#",
+    github: "#",
+
+    featured: true,
+  },
+
+  {
+    id: 2,
+    number: "02",
     title: "SkillBridge",
 
     description:
-      "Transforms YouTube playlists into structured AI-powered learning paths with quizzes and projects.",
+      "Transform YouTube playlists into complete structured courses using AI generated quizzes, notes and certificates.",
 
-    image: "/projects/skillbridge.png",
+    image: "/projects/skillbridge.png.jpeg",
 
-    technologies: [
+    tech: [
       "React",
       "Node",
       "MongoDB",
       "Gemini",
     ],
+
+    live: "#",
+    github: "#",
   },
 
   {
+    id: 3,
+
+    number: "03",
+
     title: "ThreatLens",
 
     description:
-      "Machine learning malware detection dashboard with executable visualization.",
+      "Malware detection dashboard using Machine Learning for executable classification and analytics.",
 
     image: "/projects/threatlens.png",
 
-    technologies: [
+    tech: [
       "Python",
       "FastAPI",
-      "React",
+      "TensorFlow",
     ],
+
+    live: "#",
+    github: "#",
   },
 
   {
+    id: 4,
+
+    number: "04",
+
     title: "SkillScope",
 
     description:
-      "ATS Resume Analyzer powered by Gemini AI with resume scoring and suggestions.",
+      "ATS Resume Analyzer providing AI feedback, resume scoring and interview preparation.",
 
     image: "/projects/skillscope.png",
 
-    technologies: [
+    tech: [
       "React",
       "Express",
       "Gemini",
     ],
+
+    live: "#",
+    github: "#",
   },
 ];
+
+export default projects;
