@@ -34,7 +34,7 @@ export default function FloatingCharacter() {
   const cardRadiusChange = useTransform(scrollYProgress, [0, 0.08, 0.18], ["32px", "999px", "24px"]);
 
   return (
-    <div className="absolute inset-x-0 top-32 w-full max-w-[1360px] mx-auto pointer-events-none z-30 px-6 sm:px-8 lg:px-16 xl:px-20">
+    <div className="hidden xl:block absolute inset-x-0 top-32 w-full max-w-[1360px] mx-auto pointer-events-none z-30 px-6 sm:px-8 lg:px-16 xl:px-20">
       <motion.div
         style={{
           width: cardWidth,

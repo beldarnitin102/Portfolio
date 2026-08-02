@@ -29,19 +29,9 @@ export default function HeroContent() {
         lg:mx-0
         text-center
         lg:text-left
-        
-        /* Keep your upward shift */
-       {/* Look for these lines inside your parent div configuration: */}
-relative
--top-2
-lg:-top-6
-
-
-        /* 
-          THE FIX FOR THE GAPS:
-          Turning this into a flex column allows us to use `gap-` utilities.
-          `gap-8` controls the vertical space between EVERY item uniformly!
-        */
+        relative
+        -top-2
+        lg:-top-6
         flex
         flex-col
         gap-7
