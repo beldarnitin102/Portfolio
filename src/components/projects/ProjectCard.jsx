@@ -31,7 +31,7 @@ export default function ProjectCard({
         hover:-translate-y-3
         hover:border-[#D4AF37]/40
         hover:shadow-[0_40px_120px_rgba(0,0,0,.55)]
-        min-h-[720px] /* Expanded height slightly to accommodate the wider gaps comfortably */
+        min-h-[670px] /* Slightly reduced minimum height to reduce bottom whitespace */
         ${offset === "up" ? "-translate-y-8" : "translate-y-8"}
       `}
     >
@@ -106,24 +106,13 @@ export default function ProjectCard({
           text blocks from your lower action conversion button trays.
         - Changed bottom padding to pb-12 to guarantee perfect insulation spacing from the lower border.
       */}
-      <div className="flex flex-1 flex-col px-8 pt-12 pb-12 justify-between">
+      <div className="flex flex-1 flex-col px-8 pt-16 pb-1 justify-between">
         
         {/* UPPER CONTAINER: TITLE, DESCRIPTION & TECH BADGES */}
         {/* Controlled with a uniform gap-6 layout track so text elements never run into each other */}
-        <div className="flex flex-col gap-6 w-full">
+        <div className="flex flex-col gap-8 w-full items-center text-center">
           {/* Title */}
-          <h3
-            className="
-              project-title
-              mt-16
-              text-[38px]
-              font-bold
-              leading-[1.15]
-              tracking-tight
-              text-white
-              mt-8
-            "
-          >
+          <h3 className="project-title text-[38px] font-bold leading-[1.15] tracking-tight text-white">
             {title}
           </h3>
 
@@ -140,7 +129,7 @@ export default function ProjectCard({
           </p>
 
           {/* Tech Stack List Badges */}
-          <div className="project-stack flex flex-wrap gap-3">
+          <div className="project-stack flex flex-wrap gap-3 mb-6 justify-center">
             {tech.map((item) => (
               <span
                 key={item}
@@ -149,11 +138,11 @@ export default function ProjectCard({
                   border
                   border-white/10
                   bg-white/[0.04]
-                  px-4
-                  py-2
-                  text-xs
+                  px-6
+                  py-3
+                  text-base
                   font-medium
-                  text-white/70
+                  text-white/80
                   transition
                   duration-300
                   group-hover:border-[#D4AF37]/20
@@ -167,7 +156,7 @@ export default function ProjectCard({
 
 <div className="flex flex-col w-full mt-10">
           {/* Low-contrast division horizontal node line */}
-          <div className="h-px bg-white/10 mb-6" />
+          <div className="h-px bg-white/10 mb-8" />
 
           {/* Action Buttons Frame Grid */}
           <div className="project-buttons flex gap-4 w-full">
@@ -180,10 +169,12 @@ export default function ProjectCard({
                 flex
                 items-center
                 justify-center
-                gap-2
-                rounded-2xl
+                gap-3
+                rounded-lg
                 bg-[#D4AF37]
-                py-4
+                py-5
+                px-4
+                text-sm
                 font-semibold
                 text-black
                 transition-all
@@ -204,7 +195,9 @@ export default function ProjectCard({
                 flex
                 items-center
                 justify-center
-                
+                w-14
+                h-12
+                rounded-lg
                 border
                 border-white/10
                 bg-white/[0.03]
@@ -224,13 +217,6 @@ export default function ProjectCard({
         
 
         </div>
-
-        {/* LOWER CONTAINER: SYSTEM SEPARATOR & PRIMARY CONVERSIONS BUTTONS */}
-        {/* 
-          Using an isolated flex track container pins the buttons neatly right above 
-          the pb-12 padding baseline, leaving a clean, low-contrast distance!
-        */}
-       
 
       </div>
     </article>

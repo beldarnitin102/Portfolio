@@ -39,6 +39,7 @@ export default function Home() {
           <div className="relative w-full">
             <FloatingCharacter />
             <Hero />
+          
             <About />
           </div>
 

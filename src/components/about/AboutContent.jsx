@@ -59,7 +59,7 @@ export default function AboutContent() {
             py-2
           "
         >
-          <span className="h-2 w-2 rounded-full bg-[#D4AF37]" />
+          <span className="h-6 w-6 rounded-full bg-[#D4AF37]" />
           <span className="text-sm text-white/70">About Me</span>
         </motion.div>
       </div>

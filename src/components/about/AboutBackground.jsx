@@ -5,11 +5,21 @@ import { motion } from "framer-motion";
 export default function AboutBackground() {
   return (
     <>
-      {/* Large Gold Glow */}
+      {/* Background Gradient */}
+
+      <div
+        className="
+          absolute
+          inset-0
+          bg-background
+        "
+      />
+
+      {/* Top Gold Glow */}
 
       <motion.div
         animate={{
-          scale: [1, 1.12, 1],
+          scale: [1, 1.15, 1],
           opacity: [0.14, 0.22, 0.14],
         }}
         transition={{
@@ -19,24 +29,23 @@ export default function AboutBackground() {
         }}
         className="
           absolute
-          -left-44
-          top-20
-
-          h-[520px]
-          w-[520px]
-
+          left-1/2
+          top-[-260px]
+          h-[700px]
+          w-[700px]
+          -translate-x-1/2
           rounded-full
-          bg-[#D4AF37]/12
-          blur-[150px]
+          bg-accent/15
+          blur-[180px]
         "
       />
 
-      {/* Olive Glow */}
+      {/* Right Olive Glow */}
 
       <motion.div
         animate={{
-          scale: [1.05, 1.18, 1.05],
-          opacity: [0.08, 0.16, 0.08],
+          scale: [1, 1.12, 1],
+          opacity: [0.05, 0.1, 0.05],
         }}
         transition={{
           duration: 12,
@@ -45,46 +54,63 @@ export default function AboutBackground() {
         }}
         className="
           absolute
-          right-0
-          bottom-0
-
+          right-[-180px]
+          top-1/3
           h-[420px]
           w-[420px]
-
           rounded-full
-          bg-[#708A58]/12
+          bg-olive/20
           blur-[140px]
         "
       />
 
-      {/* Grid Pattern */}
+      {/* Bottom Ambient Light */}
+
+      <motion.div
+        animate={{
+          opacity: [0.05, 0.09, 0.05],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+        }}
+        className="
+          absolute
+          bottom-[-250px]
+          left-1/2
+          h-[650px]
+          w-[900px]
+          -translate-x-1/2
+          rounded-full
+          bg-white
+          blur-[220px]
+        "
+      />
+
+      {/* Grid */}
 
       <div
         className="
           absolute
           inset-0
-          opacity-[0.035]
-
-          [background-image:linear-gradient(rgba(255,255,255,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.15)_1px,transparent_1px)]
-          [background-size:70px_70px]
+          opacity-[0.04]
         "
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px)
+          `,
+          backgroundSize: "80px 80px",
+        }}
       />
 
-      {/* Top Divider */}
+      {/* Vignette */}
 
       <div
         className="
           absolute
-          top-0
-          left-1/2
-          h-px
-          w-[75%]
-          -translate-x-1/2
-
-          bg-gradient-to-r
-          from-transparent
-          via-[#D4AF37]/30
-          to-transparent
+          inset-0
+          bg-[radial-gradient(circle,transparent_55%,rgba(0,0,0,.65))]
         "
       />
     </>

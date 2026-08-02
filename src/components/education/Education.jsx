@@ -66,13 +66,27 @@ export default function Education() {
                   className="p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl flex flex-col gap-2 text-left hover:border-white/20 transition-all duration-300"
                 >
                   <span className="text-sm font-medium text-[#D4AF37]">
-                    2023 - Present
+                    2024 - 2028
                   </span>
+
+                  {/* Title & Qualification Details */}
                   <h3 className="text-xl font-bold text-white">
                     B.Tech in Computer Science
                   </h3>
-                  <p className="text-sm text-white/70">
-                    Specialisation in AI & ML
+
+                  {/* Specialization and Current Status Meta */}
+                  <p className="text-sm text-[#D4AF37] font-semibold">
+                    Specialisation in AI & ML (TY Student)
+                  </p>
+
+                  {/* Professional Description Block */}
+                  <p className="text-sm text-white/70 leading-relaxed mt-1">
+                    Currently pursuing higher studies at{" "}
+                    <span className="text-white font-medium">
+                      R. C. Patel Institute of Technology (RCPIT), Shirpur
+                    </span>
+                    , focusing on advanced topics in artificial intelligence,
+                    neural networks, and machine learning architectures.
                   </p>
                 </motion.div>
 
@@ -84,13 +98,20 @@ export default function Education() {
                   viewport={{ once: true }}
                   className="p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl flex flex-col gap-2 text-left hover:border-white/20 transition-all duration-300"
                 >
-                  <span className="text-sm font-medium text-white/40">
+                  <span className="text-sm font-medium text-[#D4AF37]">
                     Completed
                   </span>
-                  <h3 className="text-xl font-bold text-white">
-                    Higher Secondary Certificate (12th)
+
+              
+
+                  <h3 className="text-xl font-bold text-white tracking-tight mt-1">
+                    Higher Secondary Education (12th)
                   </h3>
-                  <p className="text-sm text-white/70">Science Stream</p>
+                  <p className="text-sm text-white/50 font-medium">
+                    Janta High School & Junior College, Jamner
+                  </p>
+
+                  <p className="text-sm text-white/70 mt-1">Science Stream</p>
                 </motion.div>
               </div>
             </div>
