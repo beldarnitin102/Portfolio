@@ -30,7 +30,7 @@ const projects = [
     description:
       "Transform YouTube playlists into complete structured courses using AI generated quizzes, notes and certificates.",
 
-    image: "/projects/skillbridge.png.jpeg",
+    image: "/projects/skillbridge.png",
 
     tech: [
       "React",
