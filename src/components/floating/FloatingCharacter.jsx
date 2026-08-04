@@ -9,7 +9,7 @@ export default function FloatingCharacter() {
   const [isAboutSection, setIsAboutSection] = useState(false);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    if (latest >= 0.12) {
+    if (latest >= 0.05) {
       setIsAboutSection(true);
     } else {
       setIsAboutSection(false);
@@ -19,22 +19,22 @@ export default function FloatingCharacter() {
   /* =========================================================
      1. SEAMLESS CONTAINER DIMENSION & POSITION TIMELINES
      ========================================================= */
-  const cardWidth = useTransform(scrollYProgress, [0, 0.14, 0.18], ["500px", "420px", "460px"]);
-  const cardHeight = useTransform(scrollYProgress, [0, 0.14, 0.18], ["650px", "420px", "540px"]);
+  const cardWidth = useTransform(scrollYProgress, [0, 0.06, 0.09], ["470px", "420px", "460px"]);
+  const cardHeight = useTransform(scrollYProgress, [0, 0.06, 0.09], ["600px", "420px", "540px"]);
 
   /*
-    FIXED VERTICAL CANSED SPACE (y):
-    Changed the destination coordinate parameter from 1160px down to 830px.
-    This safely locks the card beside your About biography and completely 
-    stops it from drifting down into your Education cards!
+    SPEED CORRECTION:
+    By lowering the end scroll value to 0.09, the image will fly down (Y) 
+    and push left (X) much faster. It will now lock perfectly into place 
+    the exact moment the About section text rolls onto the screen.
   */
-  const cardMoveY = useTransform(scrollYProgress, [0, 0.18], ["0px", "760px"]); 
+  const cardMoveY = useTransform(scrollYProgress, [0, 0.09], ["0px", "690px"]); 
   
-  const cardMoveX = useTransform(scrollYProgress, [0, 0.18], ["172px", "-630px"]);
-  const cardRadiusChange = useTransform(scrollYProgress, [0, 0.08, 0.18], ["32px", "999px", "24px"]);
-
+  // Increased from -630px to -680px to push it completely clear of the text
+  const cardMoveX = useTransform(scrollYProgress, [0, 0.09], ["172px", "-680px"]);
+  const cardRadiusChange = useTransform(scrollYProgress, [0, 0.04, 0.09], ["32px", "999px", "24px"]);
   return (
-    <div className="hidden xl:block absolute inset-x-0 top-32 w-full max-w-[1360px] mx-auto pointer-events-none z-30 px-6 sm:px-8 lg:px-16 xl:px-20">
+    <div className="hidden xl:block absolute inset-x-0 top-20 w-full max-w-[1360px] mx-auto pointer-events-none z-30 px-6 sm:px-8 lg:px-16 xl:px-20">
       <motion.div
         style={{
           width: cardWidth,

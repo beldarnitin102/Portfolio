@@ -7,7 +7,8 @@ export default function ContactCard() {
     <div
       className="
         mx-auto
-        mt-24
+        mt-0
+        mb-24
         max-w-5xl
         rounded-[36px]
         border

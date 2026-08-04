@@ -18,10 +18,10 @@ export default function Contact() {
           This opens up an elegant, professional layout breathing room gap right 
           above your section headline and pill tag below the preceding rows.
         */
-        pt-48
-        pb-32
-        lg:pt-56
-        lg:pb-40
+        pt-24
+        pb-48
+        lg:pt-32
+        lg:pb-56
         w-full
         flex
         flex-col
@@ -113,7 +113,7 @@ export default function Contact() {
           </motion.div>
 
           {/* The Contact Card Form Section Elements Row */}
-          <div className="w-full flex justify-center items-center relative">
+          <div className="w-full flex justify-center items-center relative mb-24 lg:mb-32">
             <ContactCard />
           </div>
 

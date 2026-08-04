@@ -17,7 +17,7 @@ export default function Hero() {
             
             {/* LEFT SIDE */}
             <div className="order-2 lg:order-1 flex justify-center lg:justify-start w-full">
-              <div className="flex items-start gap-12 xl:gap-16 w-full max-w-[740px] xl:-translate-x-16">
+              <div className="relative flex items-center gap-12 xl:gap-16 w-full max-w-[740px] xl:-translate-x-10">
                 <HeroSocial />
                 <div className="flex-1 text-center lg:text-left">
                   <HeroContent />

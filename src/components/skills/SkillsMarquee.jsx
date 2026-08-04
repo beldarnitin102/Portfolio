@@ -86,7 +86,7 @@ function MarqueeRow({ title, items, reverse = false }) {
             x: reverse ? ["0%", "-50%"] : ["-50%", "0%"],
           }}
           transition={{
-            duration: 24,
+            duration: 12,
             repeat: Infinity,
             ease: "linear",
           }}

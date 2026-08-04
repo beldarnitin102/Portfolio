@@ -57,7 +57,7 @@ export default function Navbar() {
           </div>
 
           {/* Navigation Items (Perfect visual center alignment) */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-12">
             {navigation.map((item) => (
               <a
                 key={item.id}

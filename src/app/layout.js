@@ -1,8 +1,11 @@
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+
 import CursorGlow from "@/components/effects/CursorGlow";
 import NoiseOverlay from "@/components/effects/NoiseOverlay";
 import ScrollProgress from "@/components/effects/ScrollProgress";
+
+import LenisProvider from "@/components/providers/LenisProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -34,13 +37,17 @@ export default function RootLayout({ children }) {
           overflow-x-hidden
         `}
       >
-        <ScrollProgress />
+        <LenisProvider>
 
-        <CursorGlow />
+          <ScrollProgress />
 
-        <NoiseOverlay />
+          <CursorGlow />
 
-        {children}
+          <NoiseOverlay />
+
+          {children}
+
+        </LenisProvider>
       </body>
     </html>
   );

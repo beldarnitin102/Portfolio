@@ -61,12 +61,12 @@ export default function HeroContent() {
           backdrop-blur-xl
         "
       >
-        <span className="h-2 w-2 rounded-full bg-accent" />
+        <span className="h-2 w-2 mt-1 rounded-full bg-accent" />
         Available for Internships
       </motion.div>
 
       {/* Title & Name Container grouped together tightly */}
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col">
         <motion.p
           variants={fadeUp}
           initial="hidden"

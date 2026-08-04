@@ -37,17 +37,19 @@ export default function HeroSocial({ items }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: -30 }}
-      animate={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, x: -10 }}
+      animate={{ opacity: 1, x: 18 }}
       transition={{ delay: 1, duration: 0.8 }}
+      
       className="
         hidden
         xl:flex
         flex-col
         items-center
-        gap-6
+        justify-center
+        gap-9
         z-20
-        mb-28
+        self-center
       "
     >
       {/* Safe mapping iteration loop prevents runtime crashes */}
