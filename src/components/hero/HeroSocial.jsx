@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
 
-// Internal fallback array definition
+// Shared social links used by both desktop sidebar and mobile row
 const defaultSocials = [
   {
     icon: (props) => (
@@ -13,6 +13,7 @@ const defaultSocials = [
       </svg>
     ),
     href: "https://github.com/beldarnitin102",
+    label: "GitHub",
   },
   {
     icon: (props) => (
@@ -23,54 +24,105 @@ const defaultSocials = [
       </svg>
     ),
     href: "https://www.linkedin.com/in/nitin-beldar-022240333?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    label: "LinkedIn",
   },
   {
     icon: Mail,
     href: "mailto:beldarnitin940@gmail.com",
+    label: "Email",
   },
 ];
 
-// Added parameter protection logic down into the component declaration line
-export default function HeroSocial({ items }) {
-  // If items are passed as a prop, use them; otherwise default to our safe array
+export default function HeroSocial({ items, variant = "desktop" }) {
   const socialList = items || defaultSocials;
 
+  // ── Desktop sidebar (vertical, left of content) ─────────────────────────────
+  if (variant === "desktop") {
+    return (
+      <motion.div
+        initial={{ opacity: 0, x: -10 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 1, duration: 0.8 }}
+        className="
+          hidden
+          xl:flex
+          flex-col
+          items-center
+          justify-center
+          gap-9
+          z-20
+          self-center
+        "
+      >
+        {socialList.map((item, index) => {
+          const Icon = item.icon;
+          return (
+            <motion.a
+              key={index}
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={item.label}
+              whileHover={{ y: -4, scale: 1.15 }}
+              className="text-secondary hover:text-accent transition-colors duration-300"
+            >
+              <Icon size={22} width={22} height={22} />
+            </motion.a>
+          );
+        })}
+        <div className="mt-2 h-28 w-px bg-gradient-to-b from-accent to-transparent" />
+      </motion.div>
+    );
+  }
+
+  // ── Mobile / tablet row (horizontal, under buttons) ──────────────────────────
   return (
     <motion.div
-      initial={{ opacity: 0, x: -10 }}
-      animate={{ opacity: 1, x: 18 }}
-      transition={{ delay: 1, duration: 0.8 }}
-      
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.9, duration: 0.7 }}
       className="
-        hidden
-        xl:flex
-        flex-col
+        flex
+        xl:hidden
         items-center
         justify-center
-        gap-9
-        z-20
-        self-center
+        gap-5
+        lg:justify-start
       "
     >
-      {/* Safe mapping iteration loop prevents runtime crashes */}
       {socialList.map((item, index) => {
         const Icon = item.icon;
-
         return (
           <motion.a
             key={index}
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ y: -4, scale: 1.15 }}
-            className="text-secondary hover:text-accent transition-colors duration-300"
+            aria-label={item.label}
+            whileHover={{ y: -3, scale: 1.15 }}
+            className="
+              flex
+              h-10
+              w-10
+              items-center
+              justify-center
+              rounded-full
+              border
+              border-white/10
+              bg-white/[0.04]
+              text-secondary
+              backdrop-blur-sm
+              transition-all
+              duration-300
+              hover:border-accent/40
+              hover:bg-accent/10
+              hover:text-accent
+            "
           >
-            <Icon size={22} width={22} height={22} />
+            <Icon size={18} width={18} height={18} />
           </motion.a>
         );
       })}
-
-      <div className="mt-2 h-28 w-px bg-gradient-to-b from-accent to-transparent" />
     </motion.div>
   );
 }

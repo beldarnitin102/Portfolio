@@ -1,77 +1,118 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import navigation from "@/constants/navigation";
 import useScroll from "@/hooks/useScroll";
-import Button from "../ui/Button";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const scrolled = useScroll();
+
+  // Close the mobile menu if the viewport grows to desktop.
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  // Prevent background interaction while the mobile menu is open.
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isOpen]);
 
   return (
     <>
       <header
         className={`
           fixed
-          top-0
-          /* 
-            FORCE CENTERING MECHANISM:
-            Using left-1/2 and -translate-x-1/2 allows the fixed element to ignore 
-            collapsing layout rules and align content columns according to the viewport center.
-          */
           left-1/2
-          -translate-x-1/2
-          w-full
-          /* Match your hero container maximum boundary limits */
-          max-w-[1360px]
+          top-0
           z-50
+          w-full
+          -translate-x-1/2
           transition-all
           duration-500
-          
-          /* Match screen horizontal padding parameters from Container.jsx */
-          px-6
-          sm:px-8
+
+          max-w-[1360px]
+
+          px-4
+          sm:px-6
           lg:px-16
           xl:px-20
-          
+
           ${
             scrolled
-              ? "bg-[#030712]/70 backdrop-blur-2xl border-b border-white/10"
+              ? "border-b border-white/10 bg-[#030712]/75 backdrop-blur-2xl"
               : "bg-transparent"
           }
         `}
       >
-        <div className="flex h-20 items-center justify-between gap-4">
-          
-          {/* Logo Column */}
-          <div className="flex-1 flex justify-start">
-            <Link href="/" className="text-2xl font-bold tracking-[0.3em]">
+        <div
+          className="
+            flex
+            h-16
+            items-center
+            justify-between
+            sm:h-18
+            lg:h-20
+          "
+        >
+          {/* Logo */}
+          <div className="shrink-0">
+            <Link
+              href="/"
+              aria-label="Nitin home"
+              onClick={() => setIsOpen(false)}
+              className="
+                text-xl
+                font-bold
+                tracking-[0.24em]
+                sm:text-2xl
+                sm:tracking-[0.3em]
+              "
+            >
               <span className="text-[#E6C15A]">N</span>
               <span className="text-white">ITIN</span>
             </Link>
           </div>
 
-          {/* Navigation Items (Perfect visual center alignment) */}
-          <nav className="hidden lg:flex items-center gap-12">
+          {/* Desktop Navigation */}
+          <nav className="hidden items-center gap-8 lg:flex xl:gap-12">
             {navigation.map((item) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
                 className="
                   relative
+                  py-2
+                  text-sm
                   text-white/70
-                  transition-all
+                  transition-colors
                   duration-300
                   hover:text-[#E6C15A]
 
                   after:absolute
+                  after:bottom-0
                   after:left-0
-                  after:-bottom-2
                   after:h-0.5
                   after:w-0
                   after:bg-[#E6C15A]
@@ -86,43 +127,98 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Action Button Group */}
-          <div className="flex-1 flex items-center justify-end gap-4">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden text-white"
-            >
-              {isOpen ? <X size={30} /> : <Menu size={30} />}
-            </button>
-          </div>
-
+          {/* Mobile Menu Button */}
+          <button
+            type="button"
+            onClick={() => setIsOpen((previous) => !previous)}
+            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isOpen}
+            className="
+              flex
+              h-11
+              w-11
+              items-center
+              justify-center
+              rounded-xl
+              border
+              border-white/10
+              bg-white/[0.03]
+              text-white
+              transition-colors
+              duration-300
+              hover:bg-white/[0.07]
+              lg:hidden
+            "
+          >
+            {isOpen ? <X size={23} /> : <Menu size={23} />}
+          </button>
         </div>
       </header>
 
-      {/* Mobile Sidebar */}
+      {/* Mobile Navigation */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.98 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-40 bg-[#09090B]/95 backdrop-blur-2xl lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="
+              fixed
+              inset-0
+              z-40
+              bg-[#030712]/95
+              backdrop-blur-2xl
+              lg:hidden
+            "
           >
-            <div className="w-full max-w-[1360px] mx-auto pt-28 px-6 sm:px-8">
-              <nav className="flex flex-col gap-12">
-                {navigation.map((item) => (
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 12 }}
+              transition={{ duration: 0.25 }}
+              className="
+                flex
+                min-h-full
+                w-full
+                flex-col
+                px-6
+                pb-10
+                pt-28
+                sm:px-8
+              "
+            >
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#D4AF37]">
+                Navigation
+              </p>
+
+              <nav className="mt-10 flex flex-col">
+                {navigation.map((item, index) => (
                   <a
                     key={item.id}
                     href={`#${item.id}`}
                     onClick={() => setIsOpen(false)}
-                    className="text-3xl font-medium text-white transition-colors hover:text-[#E6C15A]"
+                    className="
+                      border-b
+                      border-white/10
+                      py-5
+                      text-2xl
+                      font-medium
+                      text-white
+                      transition-colors
+                      duration-300
+                      hover:text-[#E6C15A]
+                      sm:text-3xl
+                    "
                   >
+                    <span className="mr-4 text-sm text-white/30">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
                     {item.label}
                   </a>
                 ))}
               </nav>
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

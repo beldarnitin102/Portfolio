@@ -23,18 +23,20 @@ export default function ProjectsSlider() {
     const slider = sliderRef.current;
     if (!section || !slider) return;
 
+    let media;
     const ctx = gsap.context(() => {
       const cards = gsap.utils.toArray(".project-card");
+      media = gsap.matchMedia();
 
-      // initial state
-      gsap.set(cards, { scale: 0.82, opacity: 0.45, y: 40 });
-      gsap.set(cards[0], { scale: 1, opacity: 1, y: 0 });
-      setActive(1);
-      activeRef.current = 1;
+      // This animation only exists where the horizontal layout exists. Applying
+      // its initial state before the media query left mobile cards dimmed and
+      // their content invisible.
+      media.add("(min-width: 768px)", () => {
+        gsap.set(cards, { scale: 0.82, opacity: 0.45, y: 40 });
+        gsap.set(cards[0], { scale: 1, opacity: 1, y: 0 });
+        setActive(1);
+        activeRef.current = 1;
 
-      // only enable on desktop/tablet; completely disable on small screens
-      ScrollTrigger.matchMedia({
-        "(min-width: 768px)": () => {
           const getDistance = () => {
             const firstCard = cards[0];
             const lastCard = cards[cards.length - 1];
@@ -131,15 +133,13 @@ export default function ProjectsSlider() {
                 0,
               );
           });
-        },
-
-        "(max-width: 767px)": () => {
-          // mobile: do nothing — let markup be stacked and scroll normally
-        },
       });
     }, sectionRef);
 
-    return () => ctx.revert();
+    return () => {
+      media.revert();
+      ctx.revert();
+    };
   }, []);
 
   return (
@@ -147,12 +147,14 @@ export default function ProjectsSlider() {
       ref={sectionRef}
       className="
         relative
-        h-screen
-        overflow-hidden
+        h-auto
+        overflow-visible
+        md:h-screen
+        md:overflow-hidden
       "
     >
       {/* Progress indicator */}
-      <div className="absolute right-8 top-8 z-50">
+      <div className="absolute right-4 top-4 z-50 hidden md:block md:right-8 md:top-8">
         <div className="rounded-xl border border-white/6 bg-black/40 px-4 py-2 backdrop-blur-md text-sm text-white/70">
           <span className="font-semibold text-white">
             {String(active).padStart(2, "0")}
@@ -173,13 +175,15 @@ export default function ProjectsSlider() {
           md:h-screen
           h-auto
           md:items-center
-          items-start
+          items-center
+          md:items-start
 
-          gap-20
-
-      
-          pl-6
-          pr-6
+          gap-8
+          px-4
+          py-16
+          md:gap-20
+          md:px-6
+          md:py-0
 
           will-change-transform
         "
@@ -192,9 +196,9 @@ export default function ProjectsSlider() {
       relative
       shrink-0
 
-      w-[520px]
-      min-w-[520px]
+      w-full
       max-w-[520px]
+      md:min-w-[520px]
     "
           >
             <ProjectCard
@@ -223,7 +227,9 @@ export default function ProjectsSlider() {
         className="
           pointer-events-none
           absolute
-          bottom-10
+          hidden
+          md:block
+          md:bottom-10
           left-1/2
           z-40
           -translate-x-1/2
@@ -294,7 +300,9 @@ export default function ProjectsSlider() {
           top-0
           z-30
           h-full
-          w-48
+          hidden
+          md:block
+          md:w-48
           bg-gradient-to-r
           from-[#030712]
           to-transparent
@@ -311,7 +319,9 @@ export default function ProjectsSlider() {
           top-0
           z-30
           h-full
-          w-48
+          hidden
+          md:block
+          md:w-48
           bg-gradient-to-l
           from-[#030712]
           to-transparent

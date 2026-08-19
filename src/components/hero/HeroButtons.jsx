@@ -7,34 +7,31 @@ export default function HeroButtons() {
   return (
     <div
       className="
-        mt-10
-
+        mt-5
         flex
+        w-full
         flex-col
-        sm:flex-row
-
         items-center
         justify-center
+        gap-3
+        sm:mt-6
+        sm:w-auto
+        sm:flex-row
+        sm:gap-4
         lg:justify-start
-
-        gap-4
       "
     >
       <a href="#projects" className="w-full sm:w-auto">
         <Button
           variant="primary"
           size="lg"
-          className="group min-w-[220px] w-full"
+          className="group w-full sm:min-w-[210px] sm:w-auto"
         >
           <span>Explore My Work</span>
 
           <ArrowRight
             size={18}
-            className="
-              transition-transform
-              duration-300
-              group-hover:translate-x-1
-            "
+            className="transition-transform duration-300 group-hover:translate-x-1"
           />
         </Button>
       </a>
@@ -48,17 +45,13 @@ export default function HeroButtons() {
         <Button
           variant="secondary"
           size="lg"
-          className="group min-w-[220px] w-full"
+          className="group w-full sm:min-w-[210px] sm:w-auto"
         >
           <span>Download Resume</span>
 
           <Download
             size={18}
-            className="
-              transition-transform
-              duration-300
-              group-hover:-translate-y-1
-            "
+            className="transition-transform duration-300 group-hover:-translate-y-1"
           />
         </Button>
       </a>

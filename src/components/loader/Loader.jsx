@@ -6,35 +6,22 @@ import { useEffect, useState } from "react";
 export default function Loader() {
   const [loading, setLoading] = useState(true);
   
-  // ADDED: Track if the component has mounted on the client browser
-  const [isMounted, setIsMounted] = useState(false);
-
-  // Generate particles only once using lazy state initializer
-  const [particles] = useState(() =>
-    Array.from({ length: 18 }).map(() => ({
-      left: 8 + Math.random() * 84,
-      duration: 5 + Math.random() * 3,
-      delay: Math.random() * 2,
-      x: Math.random() * 60 - 30,
-      size: 2 + Math.random() * 3,
-    }))
-  );
+  // Deterministic values keep server and client markup identical.
+  const particles = Array.from({ length: 18 }, (_, index) => ({
+    left: 8 + ((index * 37) % 84),
+    duration: 5 + ((index * 11) % 3),
+    delay: (index % 5) * 0.4,
+    x: ((index * 17) % 60) - 30,
+    size: 2 + (index % 3),
+  }));
 
   useEffect(() => {
-    // Component has safely mounted on the browser, flip the mount switch
-    setIsMounted(true);
-
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2600);
 
     return () => clearTimeout(timer);
   }, []);
-
-  // ADDED: Prevent server-side pre-rendering mismatch by returning a static background container
-  if (!isMounted) {
-    return <div className="fixed inset-0 bg-[#09090B] z-[9999]" />;
-  }
 
   return (
     <AnimatePresence mode="wait">

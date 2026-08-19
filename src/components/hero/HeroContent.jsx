@@ -2,12 +2,14 @@
 
 import { motion } from "framer-motion";
 import HeroButtons from "./HeroButtons";
+import HeroSocial from "./HeroSocial";
 
 const fadeUp = {
   hidden: {
     opacity: 0,
     y: 35,
   },
+
   show: (delay = 0) => ({
     opacity: 1,
     y: 0,
@@ -23,22 +25,22 @@ export default function HeroContent() {
   return (
     <div
       className="
+        relative
+        mx-auto
+        flex
         w-full
         max-w-[620px]
-        mx-auto
-        lg:mx-0
-        text-center
-        lg:text-left
-        relative
-        -top-2
-        lg:-top-6
-        flex
         flex-col
-        gap-7
-        lg:gap-9
+        gap-6
+        text-center
+        lg:mx-0
+        lg:gap-8
+        lg:text-left
+        xl:-top-6
       "
     >
-      {/* Badge Container */}
+      {/* ================= STATUS ================= */}
+
       <motion.div
         variants={fadeUp}
         initial="hidden"
@@ -46,35 +48,41 @@ export default function HeroContent() {
         custom={0}
         className="
           inline-flex
+          w-fit
           self-center
-          lg:self-start
           items-center
           gap-2
           rounded-full
           border
           border-accent/20
           bg-card/60
-          px-5
+          px-4
           py-2
           text-sm
           text-secondary
           backdrop-blur-xl
+          lg:self-start
         "
       >
-        <span className="h-2 w-2 mt-1 rounded-full bg-accent" />
+        <span className="h-2 w-2 rounded-full bg-accent" />
         Available for Internships
       </motion.div>
 
-      {/* Title & Name Container grouped together tightly */}
+      {/* ================= NAME ================= */}
+
       <div className="flex flex-col">
         <motion.p
           variants={fadeUp}
           initial="hidden"
           animate="show"
           custom={0.15}
-          className="text-lg text-secondary"
+          className="
+            text-base
+            text-secondary
+            sm:text-lg
+          "
         >
-          Hi, I'm
+          Hi, I&apos;m
         </motion.p>
 
         <motion.h1
@@ -83,10 +91,12 @@ export default function HeroContent() {
           animate="show"
           custom={0.25}
           className="
-            font-bold
-            leading-none
-            tracking-tight
+            mt-1
             text-5xl
+            font-bold
+            leading-[0.95]
+            tracking-tight
+            text-white
             sm:text-6xl
             md:text-7xl
             xl:text-8xl
@@ -96,7 +106,8 @@ export default function HeroContent() {
         </motion.h1>
       </div>
 
-      {/* Role Container */}
+      {/* ================= ROLE ================= */}
+
       <motion.div
         variants={fadeUp}
         initial="hidden"
@@ -104,43 +115,78 @@ export default function HeroContent() {
         custom={0.35}
         className="flex flex-col gap-2"
       >
-        <h2 className="text-2xl md:text-3xl font-semibold text-primary">
+        <h2
+          className="
+            text-xl
+            font-semibold
+            text-primary
+            sm:text-2xl
+            md:text-3xl
+          "
+        >
           Full Stack Developer
         </h2>
-        <p className="text-lg md:text-xl text-accent">
+
+        <p
+          className="
+            text-base
+            font-medium
+            text-accent
+            sm:text-lg
+            md:text-xl
+          "
+        >
           AI • Machine Learning • Generative AI
         </p>
       </motion.div>
 
-      {/* Description Container */}
+      {/* ================= DESCRIPTION ================= */}
+
       <motion.p
         variants={fadeUp}
         initial="hidden"
         animate="show"
         custom={0.45}
-        className="text-base md:text-lg leading-8 text-secondary"
+        className="
+          max-w-[620px]
+          text-sm
+          leading-7
+          text-secondary
+          sm:text-base
+          sm:leading-8
+          md:text-lg
+        "
       >
         I build modern web applications that combine clean design, scalable
         architecture, and intelligent AI experiences. Passionate about creating
         products that are fast, useful, and enjoyable to use.
       </motion.p>
 
-      {/* Buttons Container */}
+      {/* ================= ACTIONS ================= */}
+
       <motion.div
         variants={fadeUp}
         initial="hidden"
         animate="show"
         custom={0.55}
         className="
-          flex
-          flex-wrap
-          justify-center
-          lg:justify-start
-          gap-4
-          pt-2 /* Extra spacing specifically for buttons */
+          w-full
+          pt-1
+          sm:w-auto
         "
       >
         <HeroButtons />
+      </motion.div>
+
+      {/* ================= SOCIAL (mobile / tablet only) ================= */}
+
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        animate="show"
+        custom={0.65}
+      >
+        <HeroSocial variant="mobile" />
       </motion.div>
     </div>
   );

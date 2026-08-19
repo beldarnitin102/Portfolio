@@ -4,6 +4,7 @@ import "./globals.css";
 import CursorGlow from "@/components/effects/CursorGlow";
 import NoiseOverlay from "@/components/effects/NoiseOverlay";
 import ScrollProgress from "@/components/effects/ScrollProgress";
+import CustomCursor from "@/components/layout/CustomCursor";
 
 import LenisProvider from "@/components/providers/LenisProvider";
 
@@ -42,6 +43,7 @@ export default function RootLayout({ children }) {
           <ScrollProgress />
 
           <CursorGlow />
+           <CustomCursor />
 
           <NoiseOverlay />
 

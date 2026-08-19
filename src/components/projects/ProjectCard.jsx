@@ -19,7 +19,8 @@ export default function ProjectCard({
         group
         relative
         flex
-        w-[520px]
+        w-full
+        md:w-[520px]
         flex-col
         overflow-hidden
         rounded-[34px]
@@ -31,15 +32,16 @@ export default function ProjectCard({
         hover:-translate-y-3
         hover:border-[#D4AF37]/40
         hover:shadow-[0_40px_120px_rgba(0,0,0,.55)]
-        min-h-[670px] /* Slightly reduced minimum height to reduce bottom whitespace */
-        ${offset === "up" ? "-translate-y-8" : "translate-y-8"}
+        min-h-0
+        md:min-h-[670px]
+        ${offset === "up" ? "md:-translate-y-8" : "md:translate-y-8"}
       `}
     >
       {/* Glass overlay for inactive blur/dim */}
       <div className="project-glass absolute inset-0 pointer-events-none bg-black/20 backdrop-blur-md opacity-0 transition-opacity" />
 
       {/* ================= IMAGE HOUSING ================= */}
-      <div className="relative h-[300px] overflow-hidden flex-shrink-0">
+      <div className="relative h-52 overflow-hidden flex-shrink-0 sm:h-64 md:h-[300px]">
         <div className="project-image relative h-full w-full will-change-transform">
           <Image
             src={image || "/images/about.png"}
@@ -106,13 +108,13 @@ export default function ProjectCard({
           text blocks from your lower action conversion button trays.
         - Changed bottom padding to pb-12 to guarantee perfect insulation spacing from the lower border.
       */}
-      <div className="flex flex-1 flex-col px-8 pt-16 pb-1 justify-between">
+      <div className="flex flex-1 flex-col justify-between px-5 pb-6 pt-8 sm:px-8 sm:pt-12 md:pt-16 md:pb-1">
         
         {/* UPPER CONTAINER: TITLE, DESCRIPTION & TECH BADGES */}
         {/* Controlled with a uniform gap-6 layout track so text elements never run into each other */}
-        <div className="flex flex-col gap-8 w-full items-center text-center">
+        <div className="flex w-full flex-col items-center gap-6 text-center md:gap-8">
           {/* Title */}
-          <h3 className="project-title text-[38px] font-bold leading-[1.15] tracking-tight text-white">
+          <h3 className="project-title text-3xl font-bold leading-[1.15] tracking-tight text-white sm:text-[38px]">
             {title}
           </h3>
 
@@ -120,8 +122,10 @@ export default function ProjectCard({
           <p
             className="
               project-desc
-              text-[16px]
-              leading-8
+              text-sm
+              leading-7
+              sm:text-[16px]
+              sm:leading-8
               text-white/65
             "
           >
@@ -129,7 +133,7 @@ export default function ProjectCard({
           </p>
 
           {/* Tech Stack List Badges */}
-          <div className="project-stack flex flex-wrap gap-3 mb-6 justify-center">
+          <div className="project-stack mb-2 flex flex-wrap justify-center gap-2 sm:mb-6 sm:gap-3">
             {tech.map((item) => (
               <span
                 key={item}
@@ -138,9 +142,12 @@ export default function ProjectCard({
                   border
                   border-white/10
                   bg-white/[0.04]
-                  px-6
-                  py-3
-                  text-base
+                  px-3
+                  py-2
+                  text-sm
+                  sm:px-6
+                  sm:py-3
+                  sm:text-base
                   font-medium
                   text-white/80
                   transition
@@ -154,9 +161,9 @@ export default function ProjectCard({
           </div>
 
 
-<div className="flex flex-col w-full mt-10">
+<div className="mt-4 flex w-full flex-col sm:mt-10">
           {/* Low-contrast division horizontal node line */}
-          <div className="h-px bg-white/10 mb-8" />
+          <div className="mb-5 h-px bg-white/10 sm:mb-8" />
 
           {/* Action Buttons Frame Grid */}
           <div className="project-buttons flex gap-4 w-full">
@@ -165,14 +172,15 @@ export default function ProjectCard({
               target="_blank"
               rel="noopener noreferrer"
               className="
-                flex-[11]
+                flex-1
+                md:flex-[11]
                 flex
                 items-center
                 justify-center
                 gap-3
                 rounded-lg
                 bg-[#D4AF37]
-                py-5
+                py-4
                 px-4
                 text-sm
                 font-semibold
@@ -191,7 +199,8 @@ export default function ProjectCard({
               target="_blank"
               rel="noopener noreferrer"
               className="
-                flex-[9]
+                flex-none
+                md:flex-[9]
                 flex
                 items-center
                 justify-center

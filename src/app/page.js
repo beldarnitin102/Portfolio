@@ -1,4 +1,3 @@
-// src/app/page.js
 "use client";
 
 import { useEffect, useState } from "react";
@@ -29,28 +28,19 @@ export default function Home() {
       {loading && <Loader />}
 
       {!loading && (
-        /* Reverted back to your exact original background setup */
         <main className="relative min-h-screen bg-[#030712]">
           <Navbar />
 
-          {/* 
-        THE FIX: We wrap Hero, About, and your Character in an absolute track frame. 
-        Once you scroll past this wrapper zone toward Education, the character is 
-        forced to physically scroll away with the top sections instead of sticking!
-      */}
           <div className="relative w-full">
             <FloatingCharacter />
             <Hero />
-          
             <About />
           </div>
 
-          {/* Education safely renders outside the tracking zone bounds */}
           <Education />
           <Projects />
-          <br/>
           <Skills />
-          <Contact/>
+          <Contact />
         </main>
       )}
     </>

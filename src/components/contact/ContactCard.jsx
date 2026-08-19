@@ -1,6 +1,7 @@
 "use client";
 
 import { Mail, Phone, ArrowUpRight } from "lucide-react";
+import siteConfig from "@/constants/site";
 
 export default function ContactCard() {
   return (
@@ -16,7 +17,9 @@ export default function ContactCard() {
         bg-gradient-to-br
         from-white/[0.04]
         to-white/[0.02]
-        p-10
+        p-4
+        sm:p-8
+        lg:p-10
         backdrop-blur-2xl
       "
     >
@@ -28,17 +31,20 @@ export default function ContactCard() {
         "
       >
         <a
-          href="mailto:yourmail@gmail.com"
+          href={`mailto:${siteConfig.email}`}
           className="
             group
             flex
-            items-center
-            gap-6
+            items-start
+            gap-4
             rounded-3xl
             border
             border-white/10
             bg-white/[0.03]
-            p-8
+            p-4
+            sm:items-center
+            sm:gap-6
+            sm:p-8
             transition-all
             duration-300
             hover:border-[#D4AF37]/40
@@ -48,8 +54,9 @@ export default function ContactCard() {
           <div
             className="
               flex
-              h-16
-              w-16
+              h-12
+              w-12
+              shrink-0
               items-center
               justify-center
               rounded-2xl
@@ -57,7 +64,7 @@ export default function ContactCard() {
               text-black
             "
           >
-            <Mail size={28} />
+            <Mail size={22} />
           </div>
 
           <div className="flex-1">
@@ -65,7 +72,7 @@ export default function ContactCard() {
               Email
             </p>
 
-            <h3 className="mt-2 text-xl font-bold text-white">
+            <h3 className="mt-2 break-all text-base font-bold text-white sm:text-xl">
               beldarnitin940@gmail.com
             </h3>
           </div>
@@ -82,17 +89,20 @@ export default function ContactCard() {
         </a>
 
         <a
-          href="tel:+919876543210"
+          href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
           className="
             group
             flex
-            items-center
-            gap-6
+            items-start
+            gap-4
             rounded-3xl
             border
             border-white/10
             bg-white/[0.03]
-            p-8
+            p-4
+            sm:items-center
+            sm:gap-6
+            sm:p-8
             transition-all
             duration-300
             hover:border-[#D4AF37]/40
@@ -102,8 +112,9 @@ export default function ContactCard() {
           <div
             className="
               flex
-              h-16
-              w-16
+              h-12
+              w-12
+              shrink-0
               items-center
               justify-center
               rounded-2xl
@@ -111,7 +122,7 @@ export default function ContactCard() {
               text-black
             "
           >
-            <Phone size={28} />
+            <Phone size={22} />
           </div>
 
           <div className="flex-1">
@@ -119,7 +130,7 @@ export default function ContactCard() {
               Phone
             </p>
 
-            <h3 className="mt-2 text-xl font-bold text-white">
+            <h3 className="mt-2 text-base font-bold text-white sm:text-xl">
               +91 9579737086
             </h3>
           </div>

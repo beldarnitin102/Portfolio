@@ -69,7 +69,7 @@ export default function Contact() {
                 text-[#D4AF37]
               "
             >
-              Let's Connect
+              Let&apos;s Connect
             </span>
 
             {/* Centered Heading */}
@@ -107,8 +107,8 @@ export default function Contact() {
               real-world problems with technology.
               <br /><br />
               If you have an opportunity, an exciting idea, or simply
-              want to connect, I'd be delighted to hear from you.
-              Let's create something meaningful together.
+              want to connect, I&apos;d be delighted to hear from you.
+              Let&apos;s create something meaningful together.
             </p>
           </motion.div>
 

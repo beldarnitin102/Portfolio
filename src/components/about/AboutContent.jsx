@@ -101,7 +101,7 @@ export default function AboutContent() {
             text-white/65
           "
         >
-          I'm a Full Stack Developer who enjoys transforming ideas into
+          I&apos;m a Full Stack Developer who enjoys transforming ideas into
           beautiful, scalable, and high-performance web applications.
           My interests span modern frontend development, backend systems,
           Artificial Intelligence, Machine Learning, and Generative AI.
@@ -155,7 +155,7 @@ export default function AboutContent() {
             size="lg"
             className="inline-flex items-center gap-3"
           >
-            Let's Connect
+            Let&apos;s Connect
             <ArrowRight size={18} />
           </Button>
         </motion.div>
