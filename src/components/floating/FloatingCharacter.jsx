@@ -71,7 +71,15 @@ export default function FloatingCharacter() {
   }, [isCompact]);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    setIsAboutSection(latest >= 0.05);
+    if (!isCompact) {
+      setIsAboutSection(latest >= 0.05);
+    }
+  });
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (isCompact) {
+      setIsAboutSection(latest >= mobilePath.distance * 0.55);
+    }
   });
 
   const mobileWidth = useTransform(
@@ -156,11 +164,13 @@ export default function FloatingCharacter() {
           x: isCompact ? mobileX : cardMoveX,
           y: isCompact ? mobileY : cardMoveY,
           borderRadius: isCompact ? mobileRadius : cardRadiusChange,
+          left: isCompact ? 0 : undefined,
           right: isCompact ? "auto" : undefined,
         }}
         className="
           pointer-events-auto
           absolute
+          top-0
           right-6
           overflow-hidden
           border

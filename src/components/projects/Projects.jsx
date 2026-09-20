@@ -29,16 +29,17 @@ export default function Projects() {
           transition={{ duration: 0.8 }}
           className="
       flex
-      min-h-[42vh]
+      min-h-[34vh]
       w-full
       max-w-4xl
       flex-col
       items-center
       justify-center
       px-6
-      pt-32
+      pt-24
       text-center
 
+      sm:min-h-[42vh]
       lg:pt-40
     "
         >
@@ -67,12 +68,13 @@ export default function Projects() {
             className="
         mt-8
         text-center
-        text-5xl
+        text-4xl
         font-black
         leading-[1.05]
         tracking-tight
         text-white
 
+        sm:text-5xl
         md:text-6xl
       "
           >
@@ -84,8 +86,10 @@ export default function Projects() {
         mt-7
         max-w-2xl
         text-center
-        text-lg
-        leading-8
+        text-base
+        leading-7
+        sm:text-lg
+        sm:leading-8
         text-white/60
       "
           >
@@ -97,7 +101,7 @@ export default function Projects() {
 
       {/* ================= HORIZONTAL PROJECTS ================= */}
 
-      <div className="relative z-10 mt-24 lg:mt-28">
+      <div className="relative z-10 mt-14 sm:mt-20 lg:mt-28">
         <ProjectsSlider />
       </div>
     </section>
