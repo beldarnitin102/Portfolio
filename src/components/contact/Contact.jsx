@@ -12,6 +12,7 @@ export default function Contact() {
         relative
         overflow-hidden
         bg-[#030712]
+        contact-section
         /* 
           THE UPPER SPACING FIX:
           Changed from generic py balancing parameters to pt-48 and lg:pt-56!
@@ -31,10 +32,8 @@ export default function Contact() {
     >
       {/* Container wrapper layer centered via inner flex alignments */}
       <Container className="w-full flex flex-col items-center justify-center relative z-10">
-        
         {/* Structural separation tracking grid framework */}
         <div className="flex flex-col items-center gap-16 lg:gap-20 w-full max-w-[1360px] mx-auto">
-
           {/* Header Text Animation Block */}
           <motion.div
             initial={{ opacity: 0, y: 60 }}
@@ -101,14 +100,15 @@ export default function Contact() {
                 text-white/60
               "
             >
-              Thank you for taking the time to explore my portfolio.
-              Every project here represents my passion for building
-              beautiful interfaces, scalable applications, and solving
-              real-world problems with technology.
-              <br /><br />
-              If you have an opportunity, an exciting idea, or simply
-              want to connect, I&apos;d be delighted to hear from you.
-              Let&apos;s create something meaningful together.
+              Thank you for taking the time to explore my portfolio. Every
+              project here represents my passion for building beautiful
+              interfaces, scalable applications, and solving real-world problems
+              with technology.
+              <br />
+              <br />
+              If you have an opportunity, an exciting idea, or simply want to
+              connect, I&apos;d be delighted to hear from you. Let&apos;s create
+              something meaningful together.
             </p>
           </motion.div>
 
@@ -116,9 +116,7 @@ export default function Contact() {
           <div className="w-full flex justify-center items-center relative mb-24 lg:mb-32">
             <ContactCard />
           </div>
-
         </div>
-
       </Container>
     </section>
   );

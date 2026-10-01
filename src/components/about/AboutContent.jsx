@@ -25,8 +25,12 @@ export default function AboutContent() {
   return (
     <div 
       className="
-        w-full 
+        mx-auto
+        w-full
         max-w-2xl
+        text-center
+        lg:mx-0
+        lg:text-left
         /* 
           THE STRUCTURAL FIX FOR COLLAPSING:
           Turning this wrapper into a flex column with a strict gap utility 
@@ -39,7 +43,7 @@ export default function AboutContent() {
       "
     >
       {/* Badge Container */}
-      <div className="flex">
+      <div className="flex justify-center lg:justify-start">
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -76,9 +80,11 @@ export default function AboutContent() {
             text-4xl
             font-bold
             leading-tight
+            text-center
             text-white
             sm:text-5xl
             lg:text-6xl
+            lg:text-left
           "
         >
           Passionate About Building
@@ -98,7 +104,9 @@ export default function AboutContent() {
           className="
             text-lg
             leading-8
+            text-center
             text-white/65
+            lg:text-left
           "
         >
           I&apos;m a Full Stack Developer who enjoys transforming ideas into
@@ -124,17 +132,19 @@ export default function AboutContent() {
           className="
             flex
             flex-col
+            items-center
             gap-5
             sm:flex-row
             sm:flex-wrap
+            lg:items-start
           "
         >
-          <div className="flex items-center gap-3 text-white/80">
+          <div className="flex items-center justify-center gap-3 text-white/80 lg:justify-start">
             <GraduationCap size={20} className="text-[#D4AF37]" />
             <span>B.Tech CSE (AI & ML)</span>
           </div>
 
-          <div className="flex items-center gap-3 text-white/80">
+          <div className="flex items-center justify-center gap-3 text-white/80 lg:justify-start">
             <MapPin size={20} className="text-[#D4AF37]" />
             <span>Maharashtra, India</span>
           </div>
@@ -142,7 +152,7 @@ export default function AboutContent() {
       </div>
 
       {/* CTA Button Container */}
-      <div className="pt-2">
+      <div className="flex justify-center pt-2 lg:justify-start">
         <motion.div
           variants={fadeUp}
           initial="hidden"

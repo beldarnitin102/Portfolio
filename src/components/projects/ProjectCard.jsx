@@ -88,37 +88,18 @@ export default function ProjectCard({
             backdrop-blur-xl
           "
         >
-          <span
-            className="
-              text-[11px]
-              font-semibold
-              tracking-[0.35em]
-              text-[#D4AF37]
-            "
-          >
+          <span className="text-[11px] font-semibold tracking-[0.35em] text-[#D4AF37]">
             {String(index).padStart(2, "0")}
           </span>
         </div>
       </div>
 
-      {/* ================= CONTENT CONTAINER AREA ================= */}
-      {/* 
-        THE BALANCED CONTENT ENGINE:
-        - Used 'justify-between' back on this wrapper to securely isolate your upper 
-          text blocks from your lower action conversion button trays.
-        - Changed bottom padding to pb-12 to guarantee perfect insulation spacing from the lower border.
-      */}
       <div className="flex flex-1 flex-col justify-between px-5 pb-6 pt-8 sm:px-8 sm:pt-12 md:pt-16 md:pb-1">
-        
-        {/* UPPER CONTAINER: TITLE, DESCRIPTION & TECH BADGES */}
-        {/* Controlled with a uniform gap-6 layout track so text elements never run into each other */}
         <div className="flex w-full flex-col items-center gap-6 text-center md:gap-8">
-          {/* Title */}
           <h3 className="project-title text-3xl font-bold leading-[1.15] tracking-tight text-white sm:text-[38px]">
             {title}
           </h3>
 
-          {/* Description */}
           <p
             className="
               project-desc
@@ -132,7 +113,6 @@ export default function ProjectCard({
             {description}
           </p>
 
-          {/* Tech Stack List Badges */}
           <div className="project-stack mb-2 flex flex-wrap justify-center gap-2 sm:mb-6 sm:gap-3">
             {tech.map((item) => (
               <span
@@ -161,12 +141,10 @@ export default function ProjectCard({
           </div>
 
 
-<div className="mt-4 flex w-full flex-col sm:mt-10">
-          {/* Low-contrast division horizontal node line */}
-          <div className="mb-5 h-px bg-white/10 sm:mb-8" />
+          <div className="mt-4 flex w-full flex-col sm:mt-10">
+            <div className="mb-5 h-px bg-white/10 sm:mb-8" />
 
-          {/* Action Buttons Frame Grid */}
-          <div className="project-buttons flex gap-4 w-full">
+            <div className="project-buttons flex w-full gap-4">
             <a
               href={live || "#"}
               target="_blank"
@@ -177,7 +155,7 @@ export default function ProjectCard({
                 flex
                 items-center
                 justify-center
-                gap-3
+                gap-2
                 rounded-lg
                 bg-[#D4AF37]
                 py-4
@@ -217,16 +195,19 @@ export default function ProjectCard({
                 hover:bg-white/[0.06]
               "
             >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 .297C5.373.297 0 5.67 0 12.297c0 5.303 3.438 9.8 8.205 11.385.6.112.82-.258.82-.577v-2.234c-3.338.726-4.043-1.61-4.043-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.833 2.807 1.304 3.492.997.108-.775.418-1.304.762-1.604-2.665-.304-5.467-1.334-5.467-5.932 0-1.31.47-2.382 1.236-3.222-.124-.303-.535-1.526.118-3.177 0 0 1.008-.323 3.3 1.23a11.51 11.51 0 013.003-.404c1.02.004 2.047.138 3.006.404 2.29-1.553 3.296-1.23 3.296-1.23.655 1.65.244 2.874.12 3.177.77.84 1.235 1.913 1.235 3.222 0 4.61-2.806 5.625-5.48 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297 24 5.67 18.627.297 12 .297Z" />
+              <svg
+                aria-hidden="true"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M12 .297C5.373.297 0 5.67 0 12.297c0 5.303 3.438 9.8 8.205 11.385.6.112.82-.258.82-.577v-2.234c-3.338.726-4.043-1.61-4.043-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.833 2.807 1.304 3.492.997.108-.775.418-1.304.762-1.604-2.665-.304-5.467-1.334-5.467-5.932 0-1.31.47-2.382 1.236-3.222-.124-.303-.535-1.526.118-3.177 0 0 1.008-.323 3.3 1.23a11.51 11.51 0 013.003-.404c1.02.004 2.047.138 3.006.404 2.29-1.553 3.296-1.23 3.296-1.23.655 1.65.244 2.874.12 3.177.77.84 1.235 1.913 1.235 3.222 0 4.61-2.806 5.625-5.48 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 23.682 24 23.182 24 12.297 24 5.67 18.627.297 12 .297Z" />
               </svg>
             </a>
+            </div>
           </div>
         </div>
-        
-
-        </div>
-
       </div>
     </article>
   );

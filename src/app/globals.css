@@ -9,6 +9,16 @@
   box-sizing: border-box;
 }
 
+.contact-section {
+  padding-bottom: 6rem;
+}
+
+@media (min-width: 1024px) {
+  .contact-section {
+    padding-bottom: 8rem;
+  }
+}
+
 :root {
   --radius: 18px;
 
